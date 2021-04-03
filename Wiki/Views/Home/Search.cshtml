@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Wiki.СловарнаяСтатья>
+
+@{
+    ViewData["Title"] = "Поиск по " + ViewData["searchString"];
+
+}
+
+<div class="row" style="min-height: 5vh"></div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2>
+            Статьи по слову "@ViewData["searchString"]"
+        </h2>
+        @if (Model.Count() > 0)
+        {
+            <ul class="list-unstyled">
+                @foreach (var item in Model)
+                {
+                <li class="list-item">
+                    @if (item.СтатьяГотова)
+                    {
+                        <a asp-controller="Article" asp-action="Index" asp-route-article_id="@item.IdСтатьи">@item.Название</a>
+                    }
+                    else
+                    {
+                        <a style="color: red" asp-controller="Article" asp-action="Index" asp-route-article_id="@item.IdСтатьи">@item.Название</a>
+                    }
+                    @foreach (var tag in item.СловарнаяСтатьяТег)
+                    {
+                        <span class="tag tag-default">@tag.КодТегаNavigation.Название</span>
+                    }
+                </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Соответствий запросу не найдено</p>
+        }
+        <a asp-controller="Article" asp-action="New" asp-route-name="@ViewData["searchString"]">[Добавить статью "@ViewData["searchString"]"]</a>
+    </div>
+    <div class="col-md-1"></div>
+</div>

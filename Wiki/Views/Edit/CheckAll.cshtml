@@ -1,0 +1,77 @@
+﻿@model Wiki.ViewModels.EditCheckAllViewModel
+@{
+    ViewData["Title"] = "CheckAll";
+}
+
+<div class="row" style="min-height: 5vh"></div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Правки на проверку:
+                </h2>
+            </div>
+        </div>
+        @foreach (var edit in Model.ПравкиНаПроверку)
+        {
+            <div class="row">
+                <div class="col-md-3"><a asp-controller="Edit" asp-action="Check" asp-route-edit_id="@edit.IdПравки">@edit.Название</a></div>
+                <div class="col-md-3">
+                    @switch (edit.КодСтатуса)
+                    {
+                        case 0:
+                            <span class="tag tag-info">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 1:
+                            <span class="tag tag-warning">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 2:
+                            <span class="tag tag-success">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 3:
+                            <span class="tag tag-danger">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                    }
+                </div>
+                <div class="col-md-3"><span>@edit.ДатаИзмененияСтатуса.ToShortDateString()</span></div>
+            </div>
+        }
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                    Проверенные правки:
+                </h2>
+            </div>
+        </div>
+        @foreach (var edit in Model.ПровененныеПравки)
+        {
+            <div class="row">
+                <div class="col-md-3"><a asp-controller="Edit" asp-action="Check" asp-route-edit_id="@edit.IdПравки">@edit.Название</a></div>
+                <div class="col-md-3">
+                    @switch (edit.КодСтатуса)
+                    {
+                        case 0:
+                            <span class="tag tag-info">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 1:
+                            <span class="tag tag-warning">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 2:
+                            <span class="tag tag-success">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 3:
+                            <span class="tag tag-danger">@edit.КодСтатусаNavigation.Название</span>
+                            break;
+                    }
+                </div>
+                <div class="col-md-3"><span>@edit.ДатаИзмененияСтатуса.ToShortDateString()</span></div>
+            </div>
+        }
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+

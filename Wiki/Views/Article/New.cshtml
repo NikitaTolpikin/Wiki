@@ -1,0 +1,55 @@
+﻿@model Wiki.ViewModels.ArticleNewViewModel
+@{
+    ViewData["Title"] = "New";
+}
+
+<div class="row" style="min-height: 5vh"></div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <form asp-action="New" asp-controller="Article" asp-anti-forgery="true">
+            <div class="validation" asp-validation-summary="ModelOnly" />
+            <div class="row">
+                <h2>
+                    Создать статью
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><h4><label asp-for="Название">Название:</label></h4></div>
+                <div class="col-md-6">
+                    <input asp-for="Название" type="text" value="@Model.Название" class="form-control" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><h4><label asp-for="СтрокаТегов">Теги:</label></h4></div>
+                <div class="col-md-6">
+                    <input asp-for="СтрокаТегов" type="text" class="form-control" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>
+                        <label asp-for="КодЧастиРечи">Выберите часть речи: </label>
+                    </h4>
+                </div>
+                <div class="col-md-6">
+                    <h4><select asp-for="КодЧастиРечи" asp-items="ViewBag.allPartsOfSpeech" class="form-control"></select></h4>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="cal-md-12">
+                    <h4><label asp-for="ТекстСтатьи">Текст статьи</label></h4>
+                    <textarea asp-for="ТекстСтатьи" value="@Model.ТекстСтатьи" rows="5" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row" style="min-height: 1vh"></div>
+            <div class="pull-xs-right">
+                <input type="submit" value="Отправить на проверку" class="btn btn-outline-primary" />
+            </div>
+        </form>
+        <div class="col-md-1"></div>
+    </div>
+</div>

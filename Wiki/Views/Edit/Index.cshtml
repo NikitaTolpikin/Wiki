@@ -1,0 +1,130 @@
+﻿@model Wiki.ViewModels.EditViewViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<div class="row" style="min-height: 5vh"></div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>
+                    Статус:
+                </h4>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    @switch (Model.Правка.КодСтатуса)
+                    {
+                        case 0:
+                            <span class="tag tag-info">@Model.Правка.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 1:
+                            <span class="tag tag-warning">@Model.Правка.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 2:
+                            <span class="tag tag-success">@Model.Правка.КодСтатусаNavigation.Название</span>
+                            break;
+                        case 3:
+                            <span class="tag tag-danger">@Model.Правка.КодСтатусаNavigation.Название</span>
+                            break;
+                    }
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h4>
+                    Название:
+                </h4>
+            </div>
+            <div class="col-md-3">
+                <h4>
+                    @Model.Правка.Название
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>Теги: </h4></div>
+            <div class="col-md-9 visible-md-inline">
+                <h4>
+                    @foreach (var tag in Model.Правка.IdСтатьиNavigation.СловарнаяСтатьяТег)
+                    {
+                        <span class="tag tag-default">@tag.КодТегаNavigation.Название</span>
+                    }
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h4>
+                    Часть речи:
+                </h4>
+            </div>
+            <div class="col-md-9">
+                <h4><span class="tag tag-primary">@Model.Правка.КодЧастиРечиNavigation.Название</span></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead">
+                    @Model.Правка.ТекстСтатьи
+                </p>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Комментарии</h4>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var comment in Model.ВсеКомментарии)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-block">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span>@comment.IdПользователяNavigation.КодКатегорииNavigation.Название</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <div style="text-align: right">
+                                        @comment.ВремяНаписания
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="card-title">
+                                        @comment.IdПользователяNavigation.Фамилия @comment.IdПользователяNavigation.Имя @comment.IdПользователяNavigation.Отчество
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="card-text">
+                                        @comment.ТекстКомментария
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row">
+            <form asp-controller="Comment" asp-action="New" method="post">
+                <input asp-for="IdПравки" type="hidden" value="@Model.Правка.IdПравки" />
+                <input asp-for="ПредыдущийАдрес" type="hidden" value="@Model.ПредыдущийАдрес" />
+                <textarea class="form-control" rows="4" asp-for="ТекстКомментария"></textarea>
+                <div class="row" style="min-height: 1vh"></div>
+                <div class="pull-xs-right">
+                    <input type="submit" value="Отправить комментарий" class="btn btn-outline-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>

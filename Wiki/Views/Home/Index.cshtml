@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Вики-словарь";
+}
+
+<div class="row" style="min-height: 30vh"></div>
+<div class="row center-block align-items-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h3 style="text-align: center">
+            Wiki-словарь
+        </h3>
+        <form role="form" asp-controller="Home" asp-action="Search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="searchString" placeholder="Введите слово для поиска..."/>
+            </div>
+            <div style="text-align: center">
+                <input type="submit" class="btn btn-primary btn-outline-primary" name="search" value="Поиск" />
+            </div>
+        </form>
+        <div />
+    <div class="col-md-2"></div>
+    </div>
+</div>

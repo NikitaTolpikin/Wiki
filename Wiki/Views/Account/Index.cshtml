@@ -1,0 +1,90 @@
+﻿@model Wiki.ViewModels.AccountIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+    string gender = (Model.Пользователь.Пол) ? "Мужчина" : "Женщина";
+    bool mod = (Model.Пользователь.КодКатегорииNavigation.Название == "Модератор") ? true : false;
+}
+
+<div class="row" style="min-height: 5vh"></div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-2">
+                <h2>
+                    Профиль
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><h4>Категория пользователя: </h4></div>
+            <div class="col-md-8">
+                <h4>
+                    @Model.Пользователь.КодКатегорииNavigation.Название
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>ФИО: </h4></div>
+            <div class="col-md-9">
+                <h4>
+                    @Model.Пользователь.Фамилия @Model.Пользователь.Имя @Model.Пользователь.Отчество
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>Пол: </h4></div>
+            <div class="col-md-9">
+                <h4>
+                    @gender
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>E-mail: </h4></div>
+            <div class="col-md-9">
+                <h4>
+                    @Model.Пользователь.EMail
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>Дата рождения: </h4></div>
+            <div class="col-md-9">
+                <h4>
+                    @Model.Пользователь.ДатаРождения.ToShortDateString()
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>Дата регистрации: </h4></div>
+            <div class="col-md-9">
+                <h4>
+                    @Model.Пользователь.ДатаРегистрации.ToShortDateString()
+                </h4>
+            </div>
+        </div>
+        @if (mod)
+        {
+            <hr />
+            <div class="row">
+                <div class="col-md-12"><h4>Проверяемые статьи: </h4></div>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>
+                        <ul>
+                            @foreach (СловарнаяСтатья article in Model.ВсеСтатьи)
+                            {
+                                <li>
+                                    @article.Название
+                                </li>
+                            }
+                        </ul>
+                    </h4>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-md-1"></div>
+</div>
