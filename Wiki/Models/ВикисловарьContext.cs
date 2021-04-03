@@ -13,6 +13,7 @@ namespace Wiki.Models
         public ВикисловарьContext(DbContextOptions<ВикисловарьContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public virtual DbSet<КатегорияПользователя> КатегорияПользователя { get; set; }
@@ -57,7 +58,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdКомментария)
                     .HasColumnName("ID комментария")
-                    .HasDefaultValueSql("(newid())");
+                    .HasDefaultValue(Guid.NewGuid());
 
                 entity.Property(e => e.IdПользователя).HasColumnName("ID пользователя");
 
@@ -66,7 +67,7 @@ namespace Wiki.Models
                 entity.Property(e => e.ВремяНаписания)
                     .HasColumnName("Время написания")
                     .HasColumnType("datetime")
-                    .HasDefaultValueSql("(sysdatetime())");
+                    .HasDefaultValue(DateTime.Now);
 
                 entity.Property(e => e.ТекстКомментария)
                     .IsRequired()
@@ -100,7 +101,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdНазначенногоМодератора)
                     .HasColumnName("ID назначенного модератора")
-                    .HasDefaultValueSql("(newid())");
+                    .HasDefaultValue(Guid.NewGuid());
 
                 entity.Property(e => e.IdПользователя).HasColumnName("ID пользователя");
 
@@ -132,7 +133,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdПользователя)
                     .HasColumnName("ID пользователя")
-                    .HasDefaultValueSql("(newid())");
+                    .HasDefaultValue(Guid.NewGuid());
 
                 entity.Property(e => e.EMail)
                     .IsRequired()
@@ -199,7 +200,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdПравки)
                     .HasColumnName("ID правки")
-                    .HasDefaultValueSql("(newid())");
+                    .HasDefaultValue(Guid.NewGuid());
 
                 entity.Property(e => e.IdНазначенногоМодератора).HasColumnName("ID назначенного модератора");
 
@@ -215,7 +216,7 @@ namespace Wiki.Models
                     .HasColumnName("Дата создания")
                     .HasColumnType("date");
 
-                entity.Property(e => e.КодСтатуса).HasColumnName("Код статуса").HasDefaultValueSql("0"); ;
+                entity.Property(e => e.КодСтатуса).HasColumnName("Код статуса").HasDefaultValue(0); ;
 
                 entity.Property(e => e.КодЧастиРечи).HasColumnName("Код части речи");
 
@@ -273,11 +274,11 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdСтатьи)
                     .HasColumnName("ID статьи")
-                    .HasDefaultValueSql("(newid())");
+                    .HasDefaultValue(Guid.NewGuid());
 
                 entity.Property(e => e.IdСлова).HasColumnName("ID слова");
 
-                entity.Property(e => e.КодЧастиРечи).HasColumnName("Код части речи").HasDefaultValueSql("12");
+                entity.Property(e => e.КодЧастиРечи).HasColumnName("Код части речи").HasDefaultValue(0);
 
                 entity.Property(e => e.СтатьяГотова).HasColumnName("Статья готова");
 
@@ -290,7 +291,7 @@ namespace Wiki.Models
                     .IsRequired()
                     .HasColumnName("Текст статьи")
                     .HasColumnType("text")
-                    .HasDefaultValueSql("Статья в разработке");
+                    .HasDefaultValue("Статья в разработке");
 
                 entity.HasOne(d => d.IdСловаNavigation)
                     .WithMany(p => p.СловарнаяСтатья)
@@ -334,7 +335,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdСлова)
                     .HasColumnName("ID слова")
-                    .HasDefaultValueSql("(newid())");
+                    .HasDefaultValue(Guid.NewGuid());
 
                 entity.Property(e => e.Название)
                     .IsRequired()
@@ -386,6 +387,53 @@ namespace Wiki.Models
                     .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<КатегорияПользователя>().HasData(
+            new КатегорияПользователя[]
+            {
+                new КатегорияПользователя { КодКатегории=0, Название="Пользователь"},
+                new КатегорияПользователя { КодКатегории=1, Название="Модератор"},
+                new КатегорияПользователя { КодКатегории=2, Название="Администратор"},
+            });
+
+            modelBuilder.Entity<ЧастьРечи>().HasData(
+            new ЧастьРечи[]
+            {
+                new ЧастьРечи { КодЧастиРечи=0, Название="Существительное"},
+                new ЧастьРечи { КодЧастиРечи=1, Название="Прилагательное"},
+                new ЧастьРечи { КодЧастиРечи=2, Название="Глагол"},
+                new ЧастьРечи { КодЧастиРечи=3, Название="Наречие"},
+                new ЧастьРечи { КодЧастиРечи=4, Название="Местоимение"},
+                new ЧастьРечи { КодЧастиРечи=5, Название="Числительное"},
+                new ЧастьРечи { КодЧастиРечи=6, Название="Причастие"},
+                new ЧастьРечи { КодЧастиРечи=7, Название="Деепричастие"},
+                new ЧастьРечи { КодЧастиРечи=8, Название="Категория состояния"},
+            });
+
+            modelBuilder.Entity<Тег>().HasData(
+            new Тег[]
+            {
+                new Тег { КодТега=0, Название="Физика"},
+                new Тег { КодТега=1, Название="Химия"},
+                new Тег { КодТега=2, Название="Биология"},
+            });
+
+            modelBuilder.Entity<Слово>().HasData(
+            new Слово[]
+            {
+                new Слово { IdСлова=Guid.NewGuid(), Название="Тепло"},
+                new Слово { IdСлова=Guid.NewGuid(), Название="Холодно"},
+                new Слово { IdСлова=Guid.NewGuid(), Название="Лес"},
+            });
+
+            modelBuilder.Entity<СтатусПравки>().HasData(
+            new СтатусПравки[]
+            {
+                new СтатусПравки { КодСтатуса=0, Название="Не проверено"},
+                new СтатусПравки { КодСтатуса=1, Название="Обсуждение"},
+                new СтатусПравки { КодСтатуса=2, Название="Принято"},
+                new СтатусПравки { КодСтатуса=3, Название="Отклонено"},
             });
         }
     }
