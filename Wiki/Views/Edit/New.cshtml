@@ -7,9 +7,9 @@
         <form asp-action="New" asp-controller="Edit" asp-anti-forgery="true">
             <div class="validation" asp-validation-summary="ModelOnly" />
             <div class="row">
-                    <h2>
-                        Правка статьи
-                    </h2>
+                <h2>
+                    Правка статьи
+                </h2>
             </div>
             <div class="row">
                 <div class="col-md-3"><h4><label asp-for="Название">Название:</label></h4></div>
@@ -41,6 +41,28 @@
                 </div>
                 <div class="col-md-6">
                     <h4><select asp-for="КодЧастиРечи" asp-items="ViewBag.allPartsOfSpeech" class="form-control"></select></h4>
+                    <span asp-validation-for="КодЧастиРечи" />
+
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="col-md-6 float-right">
+                <img src="@Url.Content(Model.ПутьДоИзображения)" class="img-thumbnail float-right" style="height: 250px; float:right">
+            </div>
+            <div class="row">
+                <div class="col-md-3"><h4><label asp-for="Изображение">Изображение:</label></h4></div>
+                <div class="col-md-6">
+                    <input asp-for="Изображение" class="form-control" accept="image/*" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <audio controls>
+                <source src="@Url.Content(Model.ПутьДоАудио)" type="audio/mpeg">
+            </audio>
+            <div class="row">
+                <div class="col-md-3"><h4><label asp-for="Аудио">Аудио:</label></h4></div>
+                <div class="col-md-6">
+                    <input asp-for="Аудио" class="form-control" accept="audio/mp3" />
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -48,6 +70,7 @@
                 <div class="cal-md-12">
                     <h4><label asp-for="ТекстСтатьи">Редактируйте текст статьи</label></h4>
                     <textarea asp-for="ТекстСтатьи" value="@Model.ТекстСтатьи" rows="5" class="form-control"></textarea>
+                    <span asp-validation-for="ТекстСтатьи" />
                 </div>
             </div>
             <div class="row" style="min-height: 1vh"></div>

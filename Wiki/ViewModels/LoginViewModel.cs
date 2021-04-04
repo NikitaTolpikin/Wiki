@@ -4,7 +4,8 @@ namespace Wiki.ViewModels
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Не указан Email")]
+        [Required(ErrorMessage = "Не указан электронный адрес")]
+        [EmailAddress(ErrorMessage = "Некорректный адрес")]
         public string EMail { get; set; }
 
         [Required(ErrorMessage = "Не указан пароль")]

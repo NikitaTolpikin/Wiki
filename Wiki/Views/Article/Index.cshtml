@@ -1,53 +1,72 @@
 ﻿@model Wiki.СловарнаяСтатья
 @{
     ViewData["Title"] = "View";
+    string root = $"{Context.Request.Scheme}://{Context.Request.Host}/";
+
 }
 
 <div class="row" style="min-height: 5vh"></div>
 <div class="row">
     <div class="col-md-1"></div>
+    <div class="col-md-10" style="text-align: right">
+            <a asp-controller="Edit" asp-action="New" asp-route-article_id="@Model.IdСтатьи">[править статью]</a>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
     <div class="col-md-10">
         <div class="row">
-            <div class="col-md-2">
-                <h2>
-                    @Model.Название
-                </h2>
-            </div>
-            <div class="col-md-10" style="text-align: right">
-                <a asp-controller="Edit" asp-action="New" asp-route-article_id="@Model.IdСтатьи">[править статью]</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"><h4>Теги: </h4></div>
-            <div class="col-md-9">
-                <h4>
-                    @foreach (var tag in Model.СловарнаяСтатьяТег)
-                    {
-                        <span class="tag tag-default">@tag.КодТегаNavigation.Название</span>
-                    }
-                </h4>
-            </div>
-        </div>
-        @if (Model.СтатьяГотова)
-        {
-            <div class="row">
-                <div class="col-md-3">
-                    <h4>
-                        Часть речи:
-                    </h4>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h2>
+                            @Model.Название
+                        </h2>
+                    </div>
                 </div>
-                <div class="col-md-9">
-                    <h4><span class="tag tag-primary">@Model.КодЧастиРечиNavigation.Название</span></h4>
+                <div class="row">
+                    <div class="col-md-3"><h4>Теги: </h4></div>
+                    <div class="col-md-9">
+                        <h4>
+                            @foreach (var tag in Model.СловарнаяСтатьяТег)
+                            {
+                                <span class="tag tag-default">@tag.КодТегаNavigation.Название</span>
+                            }
+                        </h4>
+                    </div>
                 </div>
+                @if (Model.СтатьяГотова)
+                {
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>
+                                Часть речи:
+                            </h4>
+                        </div>
+                        <div class="col-md-9">
+                            <h4><span class="tag tag-primary">@Model.КодЧастиРечиNavigation.Название</span></h4>
+                        </div>
+                    </div>
+                }
+
             </div>
-        }
-        <div class="row">
-            <div class="col-md-12">
-                <p class="lead">
-                    @Model.ТекстСтатьи
-                </p>
+            <div class="col-md-6 float-right">
+                <img src="@root@Model.ПутьДоИзображения" class="img-thumbnail float-right" style="height: 250px; float:right">
             </div>
+            <audio controls>
+                <source src="@root@Model.ПутьДоАудио" type="audio/mpeg">
+            </audio>
         </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="text-align: left">
+        <p class="lead">
+            @Model.ТекстСтатьи
+        </p>
     </div>
     <div class="col-md-1"></div>
 </div>

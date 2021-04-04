@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Wiki.Models;
 using Wiki.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Wiki.Controllers
 {
@@ -14,10 +16,12 @@ namespace Wiki.Controllers
     public class EditController : Controller
     {
         ВикисловарьContext db;
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public EditController(ВикисловарьContext context)
+        public EditController(ВикисловарьContext context, IHostingEnvironment environment)
         {
             db = context;
+            hostingEnvironment = environment;
         }
 
         public IActionResult Index(Guid edit_id)
@@ -81,7 +85,9 @@ namespace Wiki.Controllers
                     Название = article.Название,
                     ТекстСтатьи = article.ТекстСтатьи,
                     СловарнаяСтатьяТег = article.СловарнаяСтатьяТег,
-                    КодЧастиРечи = article.КодЧастиРечи
+                    КодЧастиРечи = article.КодЧастиРечи,
+                    ПутьДоИзображения = article.ПутьДоИзображения,
+                    ПутьДоАудио = article.ПутьДоАудио
                 };
 
                 return View(articleEditViewModel);
@@ -107,6 +113,24 @@ namespace Wiki.Controllers
                     КодЧастиРечи = articleEditViewModel.КодЧастиРечи,
                     КодСтатуса = unseen.КодСтатуса
                 };
+
+                if (articleEditViewModel.Изображение != null)
+                {
+                    string uniqueFileName = GetUniqueFileName(articleEditViewModel.Изображение.FileName);
+                    string uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                    string filePath = Path.Combine(uploadsPath, uniqueFileName);
+                    articleEditViewModel.Изображение.CopyTo(new FileStream(filePath, FileMode.Create));
+                    edit.ПутьДоИзображения = "images"+ "/" + uniqueFileName;
+                }
+
+                if (articleEditViewModel.Аудио != null)
+                {
+                    string uniqueFileName = GetUniqueFileName(articleEditViewModel.Аудио.FileName);
+                    string uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, "audio");
+                    string filePath = Path.Combine(uploadsPath, uniqueFileName);
+                    articleEditViewModel.Аудио.CopyTo(new FileStream(filePath, FileMode.Create));
+                    edit.ПутьДоАудио = "audio"+"/"+ uniqueFileName;
+                }
 
                 db.Правка.Add(edit);
                 db.SaveChanges();
@@ -173,6 +197,8 @@ namespace Wiki.Controllers
                     article.СтатьяГотова = true;
                     article.КодЧастиРечи = edit.КодЧастиРечи;
                     article.ТекстСтатьи = edit.ТекстСтатьи;
+                    article.ПутьДоИзображения = edit.ПутьДоИзображения;
+                    article.ПутьДоАудио = edit.ПутьДоАудио;
 
                     db.СловарнаяСтатья.Update(article);
                 }
@@ -185,6 +211,8 @@ namespace Wiki.Controllers
                     {
                         article.КодЧастиРечи = lastEdits[1].КодЧастиРечи;
                         article.ТекстСтатьи = lastEdits[1].ТекстСтатьи;
+                        article.ПутьДоИзображения = lastEdits[1].ПутьДоИзображения;
+                        article.ПутьДоАудио = lastEdits[1].ПутьДоАудио;
 
                         db.СловарнаяСтатья.Update(article);
                     }
@@ -192,7 +220,9 @@ namespace Wiki.Controllers
                     {
                         article.СтатьяГотова = false;
                         article.ТекстСтатьи = "Статья в разработке";
-                        article.КодЧастиРечи = 12;
+                        article.КодЧастиРечи = 0;
+                        article.ПутьДоИзображения = null;
+                        article.ПутьДоАудио = null;
                         db.СловарнаяСтатья.Update(article);
                     }
                 }
@@ -237,6 +267,15 @@ namespace Wiki.Controllers
             EditCheckAllViewModel model = new EditCheckAllViewModel { ПравкиНаПроверку = forCheck, ПровененныеПравки=moderatedEdits };
 
             return View(model);
+        }
+
+        private string GetUniqueFileName(string fileName)
+        {
+            fileName = Path.GetFileName(fileName);
+            return Path.GetFileNameWithoutExtension(fileName)
+                      + "_"
+                      + Guid.NewGuid().ToString().Substring(0, 4)
+                      + Path.GetExtension(fileName);
         }
     }
 }

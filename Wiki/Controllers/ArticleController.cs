@@ -8,16 +8,20 @@ using Wiki.Models;
 using Wiki.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Wiki.Controllers
 {
     public class ArticleController : Controller
     {
         ВикисловарьContext db;
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public ArticleController(ВикисловарьContext context)
+        public ArticleController(ВикисловарьContext context, IHostingEnvironment environment)
         {
             db = context;
+            hostingEnvironment = environment;
         }
 
         public IActionResult Index(Guid article_id)
@@ -44,6 +48,7 @@ namespace Wiki.Controllers
                 Название = name
             };
             ViewBag.allPartsOfSpeech = new SelectList(db.ЧастьРечи.ToList(), "КодЧастиРечи", "Название");
+            ViewBag.allTags = new List<Тег>(db.Тег.ToList());
 
             return View(model);
         }
@@ -59,13 +64,12 @@ namespace Wiki.Controllers
                 db.Слово.Add(word);
             }
 
-            List<string> tags = model.СтрокаТегов.Split('#').ToList();
+            List<string> tags = model.СписокТегов;
             List<Тег> objectTags = new List<Тег>();
 
             for (int i = 0;i<tags.Count;i++)
             {
                 tags[i] = tags[i].Replace("#", "");
-                tags[i] = tags[i].Replace(" ", "");
                 if (tags[i]!="")
                 {
                     Тег foundTag = db.Тег.FirstOrDefault(t => t.Название == tags[i]);
@@ -105,10 +109,37 @@ namespace Wiki.Controllers
                 IdПользователя = new Guid(User.Claims.FirstOrDefault(c => c.Type == "Id").Value)
             };
 
+            if (model.Изображение != null)
+            {
+                string uniqueFileName = GetUniqueFileName(model.Изображение.FileName);
+                string uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                string filePath = Path.Combine(uploadsPath, uniqueFileName);
+                model.Изображение.CopyTo(new FileStream(filePath, FileMode.Create));
+                edit.ПутьДоИзображения = "images" + "/" + uniqueFileName;
+            }
+
+            if (model.Аудио != null)
+            {
+                string uniqueFileName = GetUniqueFileName(model.Аудио.FileName);
+                string uploadsPath = Path.Combine(hostingEnvironment.WebRootPath, "audio");
+                string filePath = Path.Combine(uploadsPath, uniqueFileName);
+                model.Аудио.CopyTo(new FileStream(filePath, FileMode.Create));
+                edit.ПутьДоАудио = "audio" + "/" + uniqueFileName;
+            }
+
             db.Правка.Add(edit);
             db.SaveChanges();
 
             return RedirectToAction("ViewAll", "Edit");
+        }
+
+        private string GetUniqueFileName(string fileName)
+        {
+            fileName = Path.GetFileName(fileName);
+            return Path.GetFileNameWithoutExtension(fileName)
+                      + "_"
+                      + Guid.NewGuid().ToString().Substring(0, 4)
+                      + Path.GetExtension(fileName);
         }
     }
 }

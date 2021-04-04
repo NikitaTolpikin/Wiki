@@ -13,7 +13,7 @@ namespace Wiki.Models
         public ВикисловарьContext(DbContextOptions<ВикисловарьContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         public virtual DbSet<КатегорияПользователя> КатегорияПользователя { get; set; }
@@ -58,7 +58,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdКомментария)
                     .HasColumnName("ID комментария")
-                    .HasDefaultValue(Guid.NewGuid());
+                    .HasDefaultValueSql("newid()");
 
                 entity.Property(e => e.IdПользователя).HasColumnName("ID пользователя");
 
@@ -101,7 +101,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdНазначенногоМодератора)
                     .HasColumnName("ID назначенного модератора")
-                    .HasDefaultValue(Guid.NewGuid());
+                    .HasDefaultValueSql("newid()");
 
                 entity.Property(e => e.IdПользователя).HasColumnName("ID пользователя");
 
@@ -133,7 +133,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdПользователя)
                     .HasColumnName("ID пользователя")
-                    .HasDefaultValue(Guid.NewGuid());
+                    .HasDefaultValueSql("newid()");
 
                 entity.Property(e => e.EMail)
                     .IsRequired()
@@ -200,11 +200,19 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdПравки)
                     .HasColumnName("ID правки")
-                    .HasDefaultValue(Guid.NewGuid());
+                    .HasDefaultValueSql("newid()");
 
                 entity.Property(e => e.IdНазначенногоМодератора).HasColumnName("ID назначенного модератора");
 
                 entity.Property(e => e.IdПользователя).HasColumnName("ID пользователя");
+
+                entity.Property(e => e.ПутьДоИзображения)
+                    .HasColumnName("Путь до изображения")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.ПутьДоАудио)
+                    .HasColumnName("Путь до аудио")
+                    .HasColumnType("text");
 
                 entity.Property(e => e.IdСтатьи).HasColumnName("ID статьи");
 
@@ -274,7 +282,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdСтатьи)
                     .HasColumnName("ID статьи")
-                    .HasDefaultValue(Guid.NewGuid());
+                    .HasDefaultValueSql("newid()");
 
                 entity.Property(e => e.IdСлова).HasColumnName("ID слова");
 
@@ -292,6 +300,14 @@ namespace Wiki.Models
                     .HasColumnName("Текст статьи")
                     .HasColumnType("text")
                     .HasDefaultValue("Статья в разработке");
+
+                entity.Property(e => e.ПутьДоИзображения)
+                    .HasColumnName("Путь до изображения")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.ПутьДоАудио)
+                    .HasColumnName("Путь до аудио")
+                    .HasColumnType("text");
 
                 entity.HasOne(d => d.IdСловаNavigation)
                     .WithMany(p => p.СловарнаяСтатья)
@@ -335,7 +351,7 @@ namespace Wiki.Models
 
                 entity.Property(e => e.IdСлова)
                     .HasColumnName("ID слова")
-                    .HasDefaultValue(Guid.NewGuid());
+                    .HasDefaultValueSql("newid()");
 
                 entity.Property(e => e.Название)
                     .IsRequired()

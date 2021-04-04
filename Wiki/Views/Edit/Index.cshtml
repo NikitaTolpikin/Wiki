@@ -1,6 +1,7 @@
 ﻿@model Wiki.ViewModels.EditViewViewModel
 @{
     ViewData["Title"] = "View";
+    string root = $"{Context.Request.Scheme}://{Context.Request.Host}/";
 }
 
 <div class="row" style="min-height: 5vh"></div>
@@ -73,6 +74,12 @@
                 </p>
             </div>
         </div>
+        <div class="col-md-6 float-right">
+            <img src="@root@Model.Правка.ПутьДоИзображения" class="img-thumbnail float-right" style="height: 250px; float:right">
+        </div>
+        <audio controls>
+            <source src="@root@Model.Правка.ПутьДоАудио" type="audio/mpeg">
+        </audio>
         <hr />
         <div class="row">
             <div class="col-md-3">

@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <form asp-action="New" asp-controller="Article" asp-anti-forgery="true">
+        <form asp-action="New" asp-controller="Article" asp-anti-forgery="true" enctype="multipart/form-data">
             <div class="validation" asp-validation-summary="ModelOnly" />
             <div class="row">
                 <h2>
@@ -18,13 +18,37 @@
                 <div class="col-md-3"><h4><label asp-for="Название">Название:</label></h4></div>
                 <div class="col-md-6">
                     <input asp-for="Название" type="text" value="@Model.Название" class="form-control" />
+                    <span asp-validation-for="Название" />
                 </div>
                 <div class="col-md-3"></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><h4><label asp-for="СтрокаТегов">Теги:</label></h4></div>
+                <div class="col-md-3"><h4><label asp-for="Изображение">Изображение:</label></h4></div>
                 <div class="col-md-6">
-                    <input asp-for="СтрокаТегов" type="text" class="form-control" />
+                    <input asp-for="Изображение" class="form-control" accept="image/*" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><h4><label asp-for="Аудио">Аудио:</label></h4></div>
+                <div class="col-md-6">
+                    <input asp-for="Аудио" class="form-control" accept="audio/mp3" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><h4><label asp-for="СписокТегов">Теги:</label></h4></div>
+                <div class="col-md-6" id="tags_input">
+                    <div>
+                        <input name="СписокТегов[0]" type="text" class="form-control" list="tags" />
+                        <datalist id="tags">
+                            @foreach (Тег tag in ViewBag.allTags)
+                            {
+                                <option value="@tag.Название"></option>
+                            }
+                        </datalist>
+                    </div>
+                    <div id="add_btn" class="btn btn-outline-primary btn-sm">Добавить еще тег</div>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -36,6 +60,7 @@
                 </div>
                 <div class="col-md-6">
                     <h4><select asp-for="КодЧастиРечи" asp-items="ViewBag.allPartsOfSpeech" class="form-control"></select></h4>
+                    <span asp-validation-for="КодЧастиРечи" />
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -43,6 +68,7 @@
                 <div class="cal-md-12">
                     <h4><label asp-for="ТекстСтатьи">Текст статьи</label></h4>
                     <textarea asp-for="ТекстСтатьи" value="@Model.ТекстСтатьи" rows="5" class="form-control"></textarea>
+                    <span asp-validation-for="ТекстСтатьи" />
                 </div>
             </div>
             <div class="row" style="min-height: 1vh"></div>
@@ -53,3 +79,20 @@
         <div class="col-md-1"></div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+       $(function () {
+           var i = 0;
+           $("#add_btn").click(function () {
+                i++;
+                var new_tag_name = "СписокТегов[" + i + "]";
+                var cloned_last_tag = $("#tags_input>div").clone();
+                cloned_last_tag.children("input").attr("name", new_tag_name)
+                var html2add = cloned_last_tag[0].outerHTML;
+                alert(html2add);
+               $("#tags_input>div:nth-last-of-type(2)").after(html2add);
+           });
+       })
+    </script>
+}

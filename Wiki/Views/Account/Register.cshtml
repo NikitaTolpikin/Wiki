@@ -46,13 +46,13 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Пол">Пол</label>
-                    <p><input asp-for="Пол" type="radio" value="true"> Мужчина</p>
+                    <p><input asp-for="Пол" type="radio" value="True" id="radio"> Мужчина</p>
                     <p><input asp-for="Пол" type="radio" value="false"> Женщина</p>
                     <span asp-validation-for="Пол" />
                 </div>
                 <div class="form-group">
                     <label asp-for="ДатаРождения">Введите дату рождения</label>
-                    <input type="date" asp-for="ДатаРождения" class="form-control"/>
+                    <input type="date" asp-for="ДатаРождения" class="form-control" />
                     <span asp-validation-for="ДатаРождения" />
                 </div>
                 <div class="form-group">
@@ -60,6 +60,26 @@
                 </div>
             </div>
         </form>
+        <progress value="0" max="100"></progress>
     </div>
     <div class="col-md-3"></div>
 </div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            var full_count = $('form input:not([type="submit"]):not([type="hidden"]):not([type="radio"])').length;
+            full_count += 1;
+            $('form input:not([type="submit"]):not([type="hidden"])').blur(function () {
+                var empty_fields_count = $('form input:not([type="submit"]):not([type="radio"]:not([type="hidden"])').filter(function () {
+                    return !$(this).val();
+                }).length;
+                if ($('form input[type="radio"]').filter(function () { return $(this).is(":checked"); }).length < 1) {
+                    empty_fields_count += 1;
+                };
+                var percentage = 100-Math.floor(empty_fields_count / full_count * 100);
+                $("progress").attr("value", percentage);
+            })
+       })
+    </script>
+}
