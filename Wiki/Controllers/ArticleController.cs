@@ -39,7 +39,7 @@ namespace Wiki.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize(Roles = "Пользователь, Модератор")]
+        [Authorize(Roles = "Пользователь, Модератор, Администратор")]
         [HttpGet]
         public IActionResult New(string name)
         {
@@ -53,7 +53,7 @@ namespace Wiki.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Пользователь, Модератор")]
+        [Authorize(Roles = "Пользователь, Модератор, Администратор")]
         [HttpPost]
         public IActionResult New(ArticleNewViewModel model)
         {

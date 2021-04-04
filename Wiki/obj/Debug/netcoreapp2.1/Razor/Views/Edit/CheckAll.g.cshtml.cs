@@ -82,7 +82,7 @@ using Wiki.Models;
             WriteLiteral("            <div class=\"row\">\r\n                <div class=\"col-md-3\">");
             EndContext();
             BeginContext(543, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a6e6842d5834c238eb280a90ff60215", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7a450f74d264ba9bf34e805f2ff8774", async() => {
                 BeginContext(623, 13, false);
 #line 20 "D:\Projects\Wiki\Wiki\Views\Edit\CheckAll.cshtml"
                                                                                                                 Write(edit.Название);
@@ -236,7 +236,7 @@ using Wiki.Models;
             WriteLiteral("            <div class=\"row\">\r\n                <div class=\"col-md-3\">");
             EndContext();
             BeginContext(1958, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "862903a82a1f45598617565c221f6276", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc2a2681c21445889a1c7d7c5fbc1234", async() => {
                 BeginContext(2038, 13, false);
 #line 52 "D:\Projects\Wiki\Wiki\Views\Edit\CheckAll.cshtml"
                                                                                                                 Write(edit.Название);

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Wiki.Controllers
 {
-    [Authorize(Roles = "Пользователь, Модератор")]
+    [Authorize(Roles = "Пользователь, Модератор, Администратор")]
     public class EditController : Controller
     {
         ВикисловарьContext db;
@@ -141,7 +141,7 @@ namespace Wiki.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Модератор")]
+        [Authorize(Roles = "Модератор, Администратор")]
         public IActionResult Check(Guid edit_id)
         {
             var editQuery = (from e in db.Правка
@@ -175,7 +175,7 @@ namespace Wiki.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Модератор")]
+        [Authorize(Roles = "Модератор, Администратор")]
         public IActionResult Check(EditCheckViewModel model)
         {
             Правка edit = db.Правка.FirstOrDefault(e => e.IdПравки == model.IdПравки);
@@ -238,7 +238,7 @@ namespace Wiki.Controllers
             return RedirectToAction("CheckAll", "Edit");
         }
 
-        [Authorize(Roles = "Модератор")]
+        [Authorize(Roles = "Модератор, Администратор")]
         public IActionResult CheckAll()
         {
             Guid user_id = new Guid(User.Claims.FirstOrDefault(c => c.Type == "Id").Value);

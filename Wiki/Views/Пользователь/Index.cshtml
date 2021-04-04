@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Wiki.Пользователь>
+
+@{
+    ViewData["Title"] = "Таблица пользователей";
+    Layout = "~/Views/_AdminMaster.cshtml";
+}
+
+<h2>Пользователь</h2>
+<div>
+    <a asp-action="Create" class="btn btn-outline-primary">Создать</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Пароль)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ДатаРождения)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Фамилия)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Имя)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Отчество)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Пол)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ДатаРегистрации)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.КодКатегорииNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Пароль)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ДатаРождения)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Фамилия)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Имя)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Отчество)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Пол)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ДатаРегистрации)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.КодКатегорииNavigation.Название)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdПользователя">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdПользователя">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdПользователя">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Wiki.Controllers
 {
-    [Authorize(Roles = "Пользователь, Модератор")]
+    [Authorize(Roles = "Пользователь, Модератор, Администратор")]
     public class CommentController : Controller
     {
         ВикисловарьContext db;

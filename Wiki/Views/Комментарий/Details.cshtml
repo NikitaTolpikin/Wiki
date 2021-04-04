@@ -1,0 +1,44 @@
+﻿@model Wiki.Комментарий
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/_AdminMaster.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Комментарий</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ТекстКомментария)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ТекстКомментария)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ВремяНаписания)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ВремяНаписания)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdПользователяNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdПользователяNavigation.EMail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdПравкиNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdПравкиNavigation.Название)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdКомментария">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

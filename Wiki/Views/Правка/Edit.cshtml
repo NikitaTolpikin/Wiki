@@ -1,0 +1,82 @@
+﻿@model Wiki.Правка
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/_AdminMaster.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Правка</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdПравки" />
+            <div class="form-group">
+                <label asp-for="ДатаСоздания" class="control-label"></label>
+                <input asp-for="ДатаСоздания" class="form-control" />
+                <span asp-validation-for="ДатаСоздания" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Название" class="control-label"></label>
+                <input asp-for="Название" class="form-control" />
+                <span asp-validation-for="Название" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ТекстСтатьи" class="control-label"></label>
+                <input asp-for="ТекстСтатьи" class="form-control" />
+                <span asp-validation-for="ТекстСтатьи" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ПутьДоИзображения" class="control-label"></label>
+                <input asp-for="ПутьДоИзображения" class="form-control" />
+                <span asp-validation-for="ПутьДоИзображения" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ПутьДоАудио" class="control-label"></label>
+                <input asp-for="ПутьДоАудио" class="form-control" />
+                <span asp-validation-for="ПутьДоАудио" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ДатаИзмененияСтатуса" class="control-label"></label>
+                <input asp-for="ДатаИзмененияСтатуса" class="form-control" />
+                <span asp-validation-for="ДатаИзмененияСтатуса" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdСтатьи" class="control-label"></label>
+                <select asp-for="IdСтатьи" class="form-control" asp-items="ViewBag.IdСтатьи"></select>
+                <span asp-validation-for="IdСтатьи" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdПользователя" class="control-label"></label>
+                <select asp-for="IdПользователя" class="form-control" asp-items="ViewBag.IdПользователя"></select>
+                <span asp-validation-for="IdПользователя" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="КодЧастиРечи" class="control-label"></label>
+                <select asp-for="КодЧастиРечи" class="form-control" asp-items="ViewBag.КодЧастиРечи"></select>
+                <span asp-validation-for="КодЧастиРечи" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdНазначенногоМодератора" class="control-label"></label>
+                <select asp-for="IdНазначенногоМодератора" class="form-control" asp-items="ViewBag.IdНазначенногоМодератора"></select>
+                <span asp-validation-for="IdНазначенногоМодератора" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="КодСтатуса" class="control-label"></label>
+                <select asp-for="КодСтатуса" class="form-control" asp-items="ViewBag.КодСтатуса"></select>
+                <span asp-validation-for="КодСтатуса" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

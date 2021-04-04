@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Wiki.СловарнаяСтатьяТег>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_AdminMaster.cshtml";
+}
+
+<h2>Словарная статья - тег</h2>
+
+<div>
+    <a asp-action="Create" class="btn btn-outline-primary">Создать</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdСтатьиNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.КодТегаNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdСтатьиNavigation.Название)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.КодТегаNavigation.Название)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

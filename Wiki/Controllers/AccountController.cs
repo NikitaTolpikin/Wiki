@@ -85,7 +85,7 @@ namespace Wiki.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 else
-                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                    ModelState.AddModelError("", "Некорректные логин");
             }
             return View(model);
         }
@@ -115,7 +115,7 @@ namespace Wiki.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        [Authorize(Roles = "Пользователь, Модератор")]
+        [Authorize(Roles = "Пользователь, Модератор, Администратор")]
         public IActionResult Index()
         {
             Guid user_id = new Guid(User.Claims.FirstOrDefault(c => c.Type == "Id").Value);

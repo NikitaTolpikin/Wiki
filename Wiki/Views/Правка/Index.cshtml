@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Wiki.Правка>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_AdminMaster.cshtml";
+
+}
+
+<h2>Правка</h2>
+
+<div>
+    <a asp-action="Create" class="btn btn-outline-primary">Создать</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ДатаСоздания)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Название)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ТекстСтатьи)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ПутьДоИзображения)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ПутьДоАудио)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ДатаИзмененияСтатуса)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdНазначенногоМодератораNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdПользователяNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdСтатьиNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.КодСтатусаNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.КодЧастиРечиNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ДатаСоздания)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Название)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ТекстСтатьи)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ПутьДоИзображения)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ПутьДоАудио)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ДатаИзмененияСтатуса)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdНазначенногоМодератораNavigation.IdНазначенногоМодератора)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdПользователяNavigation.EMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdСтатьиNavigation.Название)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.КодСтатусаNavigation.Название)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.КодЧастиРечиNavigation.Название)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdПравки">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdПравки">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdПравки">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

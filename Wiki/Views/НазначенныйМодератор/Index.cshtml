@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Wiki.НазначенныйМодератор>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_AdminMaster.cshtml";
+
+}
+
+<h2>Назначенный модератор</h2>
+
+<div>
+    <a asp-action="Create" class="btn btn-outline-primary">Создать</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ДатаНазначения)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdПользователяNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdСтатьиNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ДатаНазначения)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdПользователяNavigation.EMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdСтатьиNavigation.Название)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdНазначенногоМодератора">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdНазначенногоМодератора">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdНазначенногоМодератора">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

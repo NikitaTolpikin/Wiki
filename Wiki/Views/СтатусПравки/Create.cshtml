@@ -1,0 +1,36 @@
+﻿@model Wiki.СтатусПравки
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/_AdminMaster.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>СтатусПравки</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="КодСтатуса" class="control-label"></label>
+                <input asp-for="КодСтатуса" class="form-control" />
+                <span asp-validation-for="КодСтатуса" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Название" class="control-label"></label>
+                <input asp-for="Название" class="form-control" />
+                <span asp-validation-for="Название" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,85 @@
+﻿@model Wiki.Правка
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/_AdminMaster.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Правка</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ДатаСоздания)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ДатаСоздания)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Название)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Название)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ТекстСтатьи)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ТекстСтатьи)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ПутьДоИзображения)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ПутьДоИзображения)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ПутьДоАудио)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ПутьДоАудио)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ДатаИзмененияСтатуса)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ДатаИзмененияСтатуса)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdНазначенногоМодератораNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdНазначенногоМодератораNavigation.IdНазначенногоМодератора)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdПользователяNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdПользователяNavigation.EMail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdСтатьиNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdСтатьиNavigation.Название)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.КодСтатусаNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.КодСтатусаNavigation.Название)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.КодЧастиРечиNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.КодЧастиРечиNavigation.Название)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdПравки">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

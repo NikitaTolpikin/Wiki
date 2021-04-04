@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using System.Security.Claims
+@{
+    string root = $"{Context.Request.Scheme}://{Context.Request.Host}";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+</head>
+<body>
+    <!--меню-->
+    <nav class="navbar navbar-dark bg-inverse">
+        <div class="container">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="~/Home/Index" class="navbar-brand">Главная</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="pull-xs-right">
+                            <li class="nav-item"><span class="navbar-text">@User.Claims.FirstOrDefault(u => u.Type == ClaimsIdentity.DefaultRoleClaimType).Value</span></li>
+                            <li class="nav-item"><span class="navbar-text">@User.Claims.FirstOrDefault(u => u.Type == "FullName").Value</span></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">&#9776;</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Index">Профиль</a>
+                                    <a class="dropdown-item" asp-controller="Edit" asp-action="ViewAll">Мои правки</a>
+                                    <a class="dropdown-item" asp-controller="Article" asp-action="New">Создать статью</a>
+                                    @if (@User.Claims.FirstOrDefault(u => u.Type == ClaimsIdentity.DefaultRoleClaimType).Value == "Модератор")
+                                    {
+                                        <a class="dropdown-item" asp-controller="Edit" asp-action="CheckAll">Модерация</a>
+                                    }
+                                    @if (@User.Claims.FirstOrDefault(u => u.Type == ClaimsIdentity.DefaultRoleClaimType).Value == "Администратор")
+                                    {
+                                        <a class="dropdown-item" asp-controller="Edit" asp-action="CheckAll">Модерация</a>
+                                        <a class="dropdown-item" asp-controller="Пользователь" asp-action="Index">Панель администратора</a>
+                                    }
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Выход</a>
+                                </div>
+                            </li>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="pull-xs-right">
+                            <li class="nav-item"><a asp-controller="Account" asp-action="Login" class="navbar-link">Вход</a></li>
+                            <li class="nav-item"><a asp-controller="Account" asp-action="Register" class="navbar-link">Регистрация</a></li>
+                        </div>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--основной контент-->
+    <div class="containe-fluid body-content" style="margin-bottom: 100px">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <div class="list-group-item list-group-item-action active">Список сущностей</div>
+                    <a class="list-group-item list-group-item-action" asp-controller="Пользователь" asp-action="Index">
+                        Пользователь
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="КатегорияПользователя" asp-action="Index">
+                        Категория пользователя
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="НазначенныйМодератор" asp-action="Index">
+                        Назначенный модератор
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="СловарнаяСтатья" asp-action="Index">
+                        Словарная статья
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="СловарнаяСтатьяТег" asp-action="Index">
+                        Словарная статья - Тег
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="Слово" asp-action="Index">
+                        Слово
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="Тег" asp-action="Index">
+                        Тег
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="Правка" asp-action="Index">
+                        Правка
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="СтатусПравки" asp-action="Index">
+                        Статус правки
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="Комментарий" asp-action="Index">
+                        Комментарий
+                    </a>
+                    <a class="list-group-item list-group-item-action" asp-controller="ЧастьРечи" asp-action="Index">
+                        Часть речи
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-10">
+                @RenderBody()
+            </div>
+
+        </div>
+        <div class="navbar-fixed-bottom row-fluid">
+            <hr />
+            <div class="navbar-inner">
+                <div class="container">
+                    <footer>
+                        <p>© 2019 - Wiki-словарь</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="@root/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="@root/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="@root/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+@RenderSection("scripts", false)
+</html>

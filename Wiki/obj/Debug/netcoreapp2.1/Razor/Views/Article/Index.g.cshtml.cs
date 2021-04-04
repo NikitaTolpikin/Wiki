@@ -63,7 +63,7 @@ using Wiki.Models;
             WriteLiteral("\r\n<div class=\"row\" style=\"min-height: 5vh\"></div>\r\n<div class=\"row\">\r\n    <div class=\"col-md-1\"></div>\r\n    <div class=\"col-md-10\" style=\"text-align: right\">\r\n            ");
             EndContext();
             BeginContext(316, 101, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bcb23a537674a558e9508f98142c502", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54c5124cfe73407f9bb40afc1527b609", async() => {
                 BeginContext(397, 16, true);
                 WriteLiteral("[править статью]");
                 EndContext();
