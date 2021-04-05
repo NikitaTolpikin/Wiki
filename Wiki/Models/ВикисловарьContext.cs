@@ -73,7 +73,7 @@ namespace Wiki.Models
                 entity.Property(e => e.ТекстКомментария)
                     .IsRequired()
                     .HasColumnName("Текст комментария")
-                    .HasColumnType("text").IsUnicode(true);
+                    .HasMaxLength(3000).IsUnicode(true);
                 
 
                 entity.HasOne(d => d.IdПользователяNavigation)
@@ -210,12 +210,12 @@ namespace Wiki.Models
 
                 entity.Property(e => e.ПутьДоИзображения)
                     .HasColumnName("Путь до изображения")
-                    .HasColumnType("text").IsUnicode(true);
+                    .HasMaxLength(3000).IsUnicode(true);
                 
 
                 entity.Property(e => e.ПутьДоАудио)
                     .HasColumnName("Путь до аудио")
-                    .HasColumnType("text").IsUnicode(true);
+                    .HasMaxLength(3000).IsUnicode(true);
                 
 
                 entity.Property(e => e.IdСтатьи).HasColumnName("ID статьи");
@@ -240,7 +240,7 @@ namespace Wiki.Models
                 entity.Property(e => e.ТекстСтатьи)
                     .IsRequired()
                     .HasColumnName("Текст статьи")
-                    .HasColumnType("text").IsUnicode(true);
+                    .HasMaxLength(3000).IsUnicode(true);
                 
 
                 entity.HasOne(d => d.IdНазначенногоМодератораNavigation)
@@ -303,18 +303,18 @@ namespace Wiki.Models
                 entity.Property(e => e.ТекстСтатьи)
                     .IsRequired()
                     .HasColumnName("Текст статьи")
-                    .HasColumnType("text")
+                    .HasMaxLength(3000)
                     .HasDefaultValue("Статья в разработке").IsUnicode(true);
                 
 
                 entity.Property(e => e.ПутьДоИзображения)
                     .HasColumnName("Путь до изображения")
-                    .HasColumnType("text").IsUnicode(true);
+                    .HasMaxLength(3000).IsUnicode(true);
                 
 
                 entity.Property(e => e.ПутьДоАудио)
                     .HasColumnName("Путь до аудио")
-                    .HasColumnType("text").IsUnicode(true);
+                    .HasMaxLength(3000).IsUnicode(true);
                 
 
                 entity.HasOne(d => d.IdСловаNavigation)
