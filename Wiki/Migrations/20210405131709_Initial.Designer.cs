@@ -10,8 +10,8 @@ using Wiki.Models;
 namespace Wiki.Migrations
 {
     [DbContext(typeof(ВикисловарьContext))]
-    [Migration("20210403185222_updateDefautlIds")]
-    partial class updateDefautlIds
+    [Migration("20210405131709_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,7 +29,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.HasKey("КодКатегории");
 
@@ -59,7 +59,7 @@ namespace Wiki.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("Время написания")
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 4, 4, 1, 52, 21, 897, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 5, 20, 17, 9, 176, DateTimeKind.Local));
 
                     b.Property<string>("ТекстКомментария")
                         .IsRequired()
@@ -116,7 +116,7 @@ namespace Wiki.Migrations
                         .IsRequired()
                         .HasColumnName("e-mail")
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.Property<DateTime>("ДатаРегистрации")
                         .HasColumnName("Дата регистрации")
@@ -129,7 +129,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Имя")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.Property<long>("КодКатегории")
                         .HasColumnName("Код категории");
@@ -137,20 +137,20 @@ namespace Wiki.Migrations
                     b.Property<string>("Отчество")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.Property<string>("Пароль")
                         .IsRequired()
                         .HasColumnName("Пароль")
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.Property<bool>("Пол");
 
                     b.Property<string>("Фамилия")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.HasKey("IdПользователя");
 
@@ -158,6 +158,10 @@ namespace Wiki.Migrations
                         .HasName("IX_Котегория");
 
                     b.ToTable("Пользователь");
+
+                    b.HasData(
+                        new { IdПользователя = new Guid("9625f0f3-b1fe-4381-9688-866916237b98"), EMail = "admin@admin.com", ДатаРегистрации = new DateTime(2021, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ДатаРождения = new DateTime(2006, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Имя = "Admin", КодКатегории = 2L, Отчество = "Admin", Пароль = "admin", Пол = true, Фамилия = "Admin" }
+                    );
                 });
 
             modelBuilder.Entity("Wiki.Правка", b =>
@@ -195,7 +199,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.Property<string>("ПутьДоАудио")
                         .HasColumnName("Путь до аудио")
@@ -248,7 +252,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.Property<string>("ПутьДоАудио")
                         .HasColumnName("Путь до аудио")
@@ -304,16 +308,16 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.HasKey("IdСлова");
 
                     b.ToTable("Слово");
 
                     b.HasData(
-                        new { IdСлова = new Guid("66f29c5b-3ad6-468f-b2c8-7fee42a617c6"), Название = "Тепло" },
-                        new { IdСлова = new Guid("f6a86d63-54f3-455d-a159-91fe73158ce8"), Название = "Холодно" },
-                        new { IdСлова = new Guid("c3c5feaf-5089-4025-93ce-d2803151b61b"), Название = "Лес" }
+                        new { IdСлова = new Guid("88038bd4-567f-4a62-b13d-516a02e97903"), Название = "Тепло" },
+                        new { IdСлова = new Guid("2df388d8-44c2-4e5e-bec1-6f479e5a327f"), Название = "Холодно" },
+                        new { IdСлова = new Guid("9faf6a05-5e0c-414d-8171-9ddcd33185bd"), Название = "Лес" }
                     );
                 });
 
@@ -325,7 +329,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.HasKey("КодСтатуса");
 
@@ -347,7 +351,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.HasKey("КодТега");
 
@@ -368,7 +372,7 @@ namespace Wiki.Migrations
                     b.Property<string>("Название")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false);
+                        .IsUnicode(true);
 
                     b.HasKey("КодЧастиРечи");
 

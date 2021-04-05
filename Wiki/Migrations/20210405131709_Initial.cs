@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Wiki.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace Wiki.Migrations
                 columns: table => new
                 {
                     Кодкатегории = table.Column<long>(name: "Код категории", nullable: false),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false)
+                    Название = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -23,8 +23,8 @@ namespace Wiki.Migrations
                 name: "Слово",
                 columns: table => new
                 {
-                    IDслова = table.Column<Guid>(name: "ID слова", nullable: false, defaultValue: new Guid("e9247265-7f3e-432c-837f-9679e11d6cf5")),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false)
+                    IDслова = table.Column<Guid>(name: "ID слова", nullable: false, defaultValueSql: "newid()"),
+                    Название = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,7 +36,7 @@ namespace Wiki.Migrations
                 columns: table => new
                 {
                     Кодстатуса = table.Column<long>(name: "Код статуса", nullable: false),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false)
+                    Название = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace Wiki.Migrations
                 columns: table => new
                 {
                     Кодтега = table.Column<long>(name: "Код тега", nullable: false),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false)
+                    Название = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,7 +60,7 @@ namespace Wiki.Migrations
                 columns: table => new
                 {
                     Кодчастиречи = table.Column<long>(name: "Код части речи", nullable: false),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false)
+                    Название = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,13 +71,13 @@ namespace Wiki.Migrations
                 name: "Пользователь",
                 columns: table => new
                 {
-                    IDпользователя = table.Column<Guid>(name: "ID пользователя", nullable: false, defaultValue: new Guid("221db561-24a7-4dc1-ab9a-a610aefdb28e")),
-                    email = table.Column<string>(name: "e-mail", unicode: false, maxLength: 30, nullable: false),
-                    Пароль = table.Column<string>(unicode: false, maxLength: 30, nullable: false),
+                    IDпользователя = table.Column<Guid>(name: "ID пользователя", nullable: false, defaultValueSql: "newid()"),
+                    email = table.Column<string>(name: "e-mail", maxLength: 30, nullable: false),
+                    Пароль = table.Column<string>(maxLength: 30, nullable: false),
                     Датарождения = table.Column<DateTime>(name: "Дата рождения", type: "date", nullable: false),
-                    Фамилия = table.Column<string>(unicode: false, maxLength: 30, nullable: false),
-                    Имя = table.Column<string>(unicode: false, maxLength: 30, nullable: false),
-                    Отчество = table.Column<string>(unicode: false, maxLength: 30, nullable: false),
+                    Фамилия = table.Column<string>(maxLength: 30, nullable: false),
+                    Имя = table.Column<string>(maxLength: 30, nullable: false),
+                    Отчество = table.Column<string>(maxLength: 30, nullable: false),
                     Пол = table.Column<bool>(nullable: false),
                     Кодкатегории = table.Column<long>(name: "Код категории", nullable: false),
                     Датарегистрации = table.Column<DateTime>(name: "Дата регистрации", type: "date", nullable: false)
@@ -97,9 +97,11 @@ namespace Wiki.Migrations
                 name: "Словарная статья",
                 columns: table => new
                 {
-                    IDстатьи = table.Column<Guid>(name: "ID статьи", nullable: false, defaultValue: new Guid("c7267621-154d-4e44-ab34-ab141d795ce3")),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false),
+                    IDстатьи = table.Column<Guid>(name: "ID статьи", nullable: false, defaultValueSql: "newid()"),
+                    Название = table.Column<string>(maxLength: 30, nullable: false),
                     Текстстатьи = table.Column<string>(name: "Текст статьи", type: "text", nullable: false, defaultValue: "Статья в разработке"),
+                    Путьдоизображения = table.Column<string>(name: "Путь до изображения", type: "text", nullable: true),
+                    Путьдоаудио = table.Column<string>(name: "Путь до аудио", type: "text", nullable: true),
                     IDслова = table.Column<Guid>(name: "ID слова", nullable: false),
                     Кодчастиречи = table.Column<long>(name: "Код части речи", nullable: false, defaultValue: 0L),
                     Статьяготова = table.Column<bool>(name: "Статья готова", nullable: false)
@@ -125,7 +127,7 @@ namespace Wiki.Migrations
                 name: "Назначенный модератор",
                 columns: table => new
                 {
-                    IDназначенногомодератора = table.Column<Guid>(name: "ID назначенного модератора", nullable: false, defaultValue: new Guid("ed343975-1472-4363-9c62-f8c0bf21ff0a")),
+                    IDназначенногомодератора = table.Column<Guid>(name: "ID назначенного модератора", nullable: false, defaultValueSql: "newid()"),
                     Датаназначения = table.Column<DateTime>(name: "Дата назначения", type: "date", nullable: false),
                     IDстатьи = table.Column<Guid>(name: "ID статьи", nullable: false),
                     IDпользователя = table.Column<Guid>(name: "ID пользователя", nullable: false)
@@ -175,10 +177,12 @@ namespace Wiki.Migrations
                 name: "Правка",
                 columns: table => new
                 {
-                    IDправки = table.Column<Guid>(name: "ID правки", nullable: false, defaultValue: new Guid("45e91cf8-6f99-44e1-a83b-a773028a4a7e")),
+                    IDправки = table.Column<Guid>(name: "ID правки", nullable: false, defaultValueSql: "newid()"),
                     Датасоздания = table.Column<DateTime>(name: "Дата создания", type: "date", nullable: false),
-                    Название = table.Column<string>(unicode: false, maxLength: 30, nullable: false),
+                    Название = table.Column<string>(maxLength: 30, nullable: false),
                     Текстстатьи = table.Column<string>(name: "Текст статьи", type: "text", nullable: false),
+                    Путьдоизображения = table.Column<string>(name: "Путь до изображения", type: "text", nullable: true),
+                    Путьдоаудио = table.Column<string>(name: "Путь до аудио", type: "text", nullable: true),
                     Датаизменениястатуса = table.Column<DateTime>(name: "Дата изменения статуса", type: "date", nullable: false),
                     IDстатьи = table.Column<Guid>(name: "ID статьи", nullable: false),
                     IDпользователя = table.Column<Guid>(name: "ID пользователя", nullable: false),
@@ -225,11 +229,11 @@ namespace Wiki.Migrations
                 name: "Комментарий",
                 columns: table => new
                 {
-                    IDкомментария = table.Column<Guid>(name: "ID комментария", nullable: false, defaultValue: new Guid("f22938ba-445f-43b5-be5a-95b49329f5ac")),
+                    IDкомментария = table.Column<Guid>(name: "ID комментария", nullable: false, defaultValueSql: "newid()"),
                     Тексткомментария = table.Column<string>(name: "Текст комментария", type: "text", nullable: false),
                     IDправки = table.Column<Guid>(name: "ID правки", nullable: false),
                     IDпользователя = table.Column<Guid>(name: "ID пользователя", nullable: false),
-                    Времянаписания = table.Column<DateTime>(name: "Время написания", type: "datetime", nullable: false, defaultValue: new DateTime(2021, 4, 3, 20, 51, 51, 402, DateTimeKind.Local))
+                    Времянаписания = table.Column<DateTime>(name: "Время написания", type: "datetime", nullable: false, defaultValue: new DateTime(2021, 4, 5, 20, 17, 9, 176, DateTimeKind.Local))
                 },
                 constraints: table =>
                 {
@@ -263,9 +267,9 @@ namespace Wiki.Migrations
                 columns: new[] { "ID слова", "Название" },
                 values: new object[,]
                 {
-                    { new Guid("ee0f006b-101b-4dfc-8610-94f0ed17da0c"), "Тепло" },
-                    { new Guid("dac65a36-cffd-4334-96db-a0b0d8bfe82c"), "Холодно" },
-                    { new Guid("3b0f6400-7fed-4fd0-bb52-3d1b0af7d69a"), "Лес" }
+                    { new Guid("88038bd4-567f-4a62-b13d-516a02e97903"), "Тепло" },
+                    { new Guid("2df388d8-44c2-4e5e-bec1-6f479e5a327f"), "Холодно" },
+                    { new Guid("9faf6a05-5e0c-414d-8171-9ddcd33185bd"), "Лес" }
                 });
 
             migrationBuilder.InsertData(
@@ -304,6 +308,11 @@ namespace Wiki.Migrations
                     { 6L, "Причастие" },
                     { 8L, "Категория состояния" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Пользователь",
+                columns: new[] { "ID пользователя", "e-mail", "Дата регистрации", "Дата рождения", "Имя", "Код категории", "Отчество", "Пароль", "Пол", "Фамилия" },
+                values: new object[] { new Guid("9625f0f3-b1fe-4381-9688-866916237b98"), "admin@admin.com", new DateTime(2021, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2006, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin", 2L, "Admin", "admin", true, "Admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Автор комментария",

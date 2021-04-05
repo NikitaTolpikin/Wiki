@@ -57,7 +57,7 @@ namespace Wiki.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("Время написания")
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 4, 5, 20, 3, 58, 363, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 5, 20, 17, 9, 176, DateTimeKind.Local));
 
                     b.Property<string>("ТекстКомментария")
                         .IsRequired()
@@ -158,7 +158,7 @@ namespace Wiki.Migrations
                     b.ToTable("Пользователь");
 
                     b.HasData(
-                        new { IdПользователя = new Guid("95675a84-6bc9-461e-bbe0-51d40b635fe2"), EMail = "admin@admin.com", ДатаРегистрации = new DateTime(2021, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ДатаРождения = new DateTime(2006, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Имя = "Admin", КодКатегории = 2L, Отчество = "Admin", Пароль = "admin", Пол = true, Фамилия = "Admin" }
+                        new { IdПользователя = new Guid("9625f0f3-b1fe-4381-9688-866916237b98"), EMail = "admin@admin.com", ДатаРегистрации = new DateTime(2021, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ДатаРождения = new DateTime(2006, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Имя = "Admin", КодКатегории = 2L, Отчество = "Admin", Пароль = "admin", Пол = true, Фамилия = "Admin" }
                     );
                 });
 
@@ -313,9 +313,9 @@ namespace Wiki.Migrations
                     b.ToTable("Слово");
 
                     b.HasData(
-                        new { IdСлова = new Guid("cab2a80d-7cfc-4aa1-878f-885a3c030621"), Название = "Тепло" },
-                        new { IdСлова = new Guid("148a1960-9c36-4bca-9835-28a7ea1d6402"), Название = "Холодно" },
-                        new { IdСлова = new Guid("d06594b5-8e8f-4f7e-8ec7-6cb0d6d9ac4e"), Название = "Лес" }
+                        new { IdСлова = new Guid("88038bd4-567f-4a62-b13d-516a02e97903"), Название = "Тепло" },
+                        new { IdСлова = new Guid("2df388d8-44c2-4e5e-bec1-6f479e5a327f"), Название = "Холодно" },
+                        new { IdСлова = new Guid("9faf6a05-5e0c-414d-8171-9ddcd33185bd"), Название = "Лес" }
                     );
                 });
 
