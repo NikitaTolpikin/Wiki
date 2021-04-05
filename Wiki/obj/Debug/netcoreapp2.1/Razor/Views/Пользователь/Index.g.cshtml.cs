@@ -68,7 +68,7 @@ using Wiki.Models;
             WriteLiteral("\r\n<h2>Пользователь</h2>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(179, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e873f79ff8ae424895fdce17a0ab2316", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30ad2cdf7bbe4e04bb360b880d847722", async() => {
                 BeginContext(234, 7, true);
                 WriteLiteral("Создать");
                 EndContext();
@@ -280,7 +280,7 @@ using Wiki.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(2405, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47d4619dd5f543c79c0a81a4d07067b6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "007e6254e3004db7be01602e3331de82", async() => {
                 BeginContext(2462, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -315,7 +315,7 @@ using Wiki.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(2494, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bdf889717ee4ec5bcbe3f10c45159ca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5575c3f91a0f4493951b367b5a1fa26a", async() => {
                 BeginContext(2554, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -350,7 +350,7 @@ using Wiki.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(2589, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5a86bc2891447f8bb0b8763ae8a1009", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e625e8ea1fe4255a7c51d20b7799bb7", async() => {
                 BeginContext(2648, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

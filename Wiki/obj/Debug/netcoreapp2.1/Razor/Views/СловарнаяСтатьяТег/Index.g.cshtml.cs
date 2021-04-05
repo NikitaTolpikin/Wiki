@@ -65,7 +65,7 @@ using Wiki.Models;
             WriteLiteral("\r\n<h2>Словарная статья - тег</h2>\r\n\r\n<div>\r\n    ");
             EndContext();
             BeginContext(181, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9104fc83b8cd407ea687daa54828217d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29c91a199cd84c32b288470e87c1ccd5", async() => {
                 BeginContext(236, 7, true);
                 WriteLiteral("Создать");
                 EndContext();

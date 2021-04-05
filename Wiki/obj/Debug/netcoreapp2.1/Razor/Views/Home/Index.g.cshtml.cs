@@ -63,7 +63,7 @@ using Wiki.Models;
             WriteLiteral("\r\n<div class=\"row\" style=\"min-height: 30vh\"></div>\r\n<div class=\"row center-block align-items-center\">\r\n    <div class=\"col-md-2\"></div>\r\n    <div class=\"col-md-8\">\r\n        <h3 style=\"text-align: center\">\r\n            Wiki-словарь\r\n        </h3>\r\n        ");
             EndContext();
             BeginContext(303, 435, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a97bea3434344738c84b117528f72ed", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e43f4f1cd304905bdc4aae6f9fa2a54", async() => {
                 BeginContext(363, 368, true);
                 WriteLiteral(@"
             <div class=""form-group"">

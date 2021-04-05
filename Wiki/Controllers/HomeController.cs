@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Wiki.Models;
@@ -20,6 +18,14 @@ namespace Wiki.Controllers
 
         public IActionResult Index()
         {
+            DateTime now = DateTime.Now;
+            string now_str = now.ToString("HH:mm:ss");
+            string time = HttpContext.Session.GetString("BeginTime");
+            if (HttpContext.Session.GetString("BeginTime") == null)
+            {
+                HttpContext.Session.SetString("BeginTime", now_str);
+                time = HttpContext.Session.GetString("BeginTime");
+            };
             return View();
         }
 

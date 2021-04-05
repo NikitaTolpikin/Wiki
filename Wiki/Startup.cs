@@ -25,9 +25,16 @@ namespace Wiki
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".MyApp.Session";
+                options.Cookie.IsEssential = true;
+            });
+
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ВикисловарьContext>(options => options.UseSqlServer(connection));
@@ -51,6 +58,7 @@ namespace Wiki
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.UseSession();
 
             app.UseFileServer(new FileServerOptions()
             {

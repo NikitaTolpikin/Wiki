@@ -1,5 +1,6 @@
 ﻿@using System.Security.Claims
-@{ 
+@using Microsoft.AspNetCore.Http;
+@{
     string root = $"{Context.Request.Scheme}://{Context.Request.Host}";
 }
 
@@ -9,6 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="@root/css/modal_window.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
 </head>
 <body>
@@ -57,13 +59,21 @@
     </nav>
     <!--основной контент-->
     <div class="container body-content" style="margin-bottom: 100px">
+        <div id="myModal">
+            <p>Вы уже долго на нашем сайте</p>
+            <p>Зарегистрируйтесь или войдите, чтобы получить больше возможностей!</p>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary" id="myModal_login">Вход</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary" id="myModal_register">Регистрация</a>
+            <span id="myModal__close" class="close">ₓ</span>
+        </div>
+        <div id="myOverlay"></div>
         @RenderBody()
         <div class="navbar-fixed-bottom row-fluid">
             <hr />
             <div class="navbar-inner">
                 <div class="container">
                     <footer>
-                        <p>© 2019 - Wiki-словарь</p>
+                        <p>© 2021 - Wiki-словарь</p>
                     </footer>
                 </div>
             </div>
@@ -74,5 +84,44 @@
 <script src="@root/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="@root/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+<script src="@root/js/moment.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var delay = 120;
+        var closed = sessionStorage.getItem("closed");
+        if ("@User.Identity.IsAuthenticated" == "False" && closed!=="Yes") {
+            var intervalId = window.setInterval(function ()
+            {
+                var now_time = moment();
+                var begin_time = "@Context.Session.GetString("BeginTime")";
+                if (begin_time != "null") {
+                    var beg_time = moment(begin_time, "hh:mm:ss");
+                };
+                if (now_time.diff(beg_time, "seconds") > delay)
+                {
+                        $('#myOverlay').fadeIn(297, function () {
+                            $('#myModal')
+                                .css('display', 'block')
+                                .animate({ opacity: 1 }, 198);
+                    });
+                    clearInterval(intervalId);
+                };
+            }, 3000);
+        };
+        $('#myModal__close, #myOverlay').click(function () {
+            $('#myModal').animate({ opacity: 0 }, 198, function () {
+                $(this).css('display', 'none');
+                $('#myOverlay').fadeOut(297);
+            });
+            sessionStorage.setItem("closed", "Yes");
+        });
+        $('#myModal_login').click(function () {
+            sessionStorage.setItem("closed", "Yes");
+        });
+        $('#myModal_register').click(function () {
+            sessionStorage.setItem("closed", "Yes");
+        });
+    });
+</script>
 @RenderSection("scripts", false)
 </html>
