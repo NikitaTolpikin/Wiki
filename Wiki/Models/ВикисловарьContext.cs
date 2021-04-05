@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -450,6 +451,23 @@ namespace Wiki.Models
                 new СтатусПравки { КодСтатуса=1, Название="Обсуждение"},
                 new СтатусПравки { КодСтатуса=2, Название="Принято"},
                 new СтатусПравки { КодСтатуса=3, Название="Отклонено"},
+            });
+
+            modelBuilder.Entity<Пользователь>().HasData(
+            new Пользователь[]
+            {
+                new Пользователь {
+                    IdПользователя =Guid.NewGuid(),
+                    EMail ="admin@admin.com",
+                    Пароль ="admin",
+                    ДатаРождения =DateTime.ParseExact("2006-04-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    ДатаРегистрации =DateTime.ParseExact("2021-04-01", "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    Имя="Admin",
+                    Фамилия="Admin",
+                    Отчество="Admin",
+                    КодКатегории=2,
+                    Пол = true
+                }
             });
         }
     }
