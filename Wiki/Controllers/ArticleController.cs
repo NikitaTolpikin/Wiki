@@ -75,7 +75,7 @@ namespace Wiki.Controllers
                     Тег foundTag = db.Тег.FirstOrDefault(t => t.Название == tags[i]);
                     if (foundTag==null)
                     {
-                        foundTag = new Тег { Название= tags[i], КодТега = db.Тег.ToList().Count};
+                        foundTag = new Тег { Название= tags[i], КодТега = db.Тег.ToList().Count+1};
                         db.Тег.Add(foundTag);
                     }
                     objectTags.Add(foundTag);
