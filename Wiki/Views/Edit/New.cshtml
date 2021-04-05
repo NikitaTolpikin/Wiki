@@ -1,5 +1,6 @@
 ﻿@model Wiki.ViewModels.ArticleEditViewModel
 @{ 
+    ViewData["Title"] = "Edit";
     string root = $"{Context.Request.Scheme}://{Context.Request.Host}/";
 }
 
@@ -86,12 +87,17 @@
                 <h4><label asp-for="ТекстСтатьи">Редактируйте текст статьи</label></h4>
                 <textarea asp-for="ТекстСтатьи" value="@Model.ТекстСтатьи" rows="5" class="form-control"></textarea>
                 <span asp-validation-for="ТекстСтатьи" />
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row" style="min-height: 1vh">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <div class="pull-xs-right">
                     <input type="submit" value="Отправить на проверку" class="btn btn-outline-primary" />
                 </div>
             </div>
             <div class="col-md-1"></div>
         </div>
-        <div class="row" style="min-height: 1vh"></div>
     </form>
 </div>
