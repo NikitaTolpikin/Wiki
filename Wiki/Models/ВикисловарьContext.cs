@@ -44,7 +44,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
             });
 
             modelBuilder.Entity<Комментарий>(entity =>
@@ -140,13 +140,13 @@ namespace Wiki.Models
                     .IsRequired()
                     .HasColumnName("e-mail")
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.Пароль)
                     .IsRequired()
                     .HasColumnName("Пароль")
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.ДатаРегистрации)
                     .HasColumnName("Дата регистрации")
@@ -159,19 +159,19 @@ namespace Wiki.Models
                 entity.Property(e => e.Имя)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.КодКатегории).HasColumnName("Код категории");
 
                 entity.Property(e => e.Отчество)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.Фамилия)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.HasOne(d => d.КодКатегорииNavigation)
                     .WithMany(p => p.Пользователь)
@@ -232,7 +232,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.ТекстСтатьи)
                     .IsRequired()
@@ -294,7 +294,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
 
                 entity.Property(e => e.ТекстСтатьи)
                     .IsRequired()
@@ -357,7 +357,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
             });
 
             modelBuilder.Entity<СтатусПравки>(entity =>
@@ -373,7 +373,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
             });
 
             modelBuilder.Entity<Тег>(entity =>
@@ -387,7 +387,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
             });
 
             modelBuilder.Entity<ЧастьРечи>(entity =>
@@ -403,7 +403,7 @@ namespace Wiki.Models
                 entity.Property(e => e.Название)
                     .IsRequired()
                     .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .IsUnicode(true);
             });
 
             modelBuilder.Entity<КатегорияПользователя>().HasData(
