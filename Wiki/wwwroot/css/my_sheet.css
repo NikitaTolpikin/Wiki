@@ -1,0 +1,21 @@
+﻿.field-validation-error {
+    color: red;
+}
+progress {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    color: #0275d8;
+}
+progress::-moz-progress-bar {
+    background: #0275d8;
+}
+
+progress::-webkit-progress-value {
+    background: #0275d8;
+}
+
+.edit_article_container {
+    text-align: right;
+    margin-bottom: 10px;
+}

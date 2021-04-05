@@ -105,7 +105,7 @@ using System.Security.Claims;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(169, 377, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7b1035ea4f64c38803d1f565cad5de2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1709f2c449304bcab5aff34ce241c453", async() => {
                 BeginContext(175, 121, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
                 EndContext();
@@ -135,12 +135,12 @@ using System.Security.Claims;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(548, 5878, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2df46017ae74f7589555e2f672de28b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c68d1e91c754fd993b3a47ed9f284a8", async() => {
                 BeginContext(554, 189, true);
                 WriteLiteral("\r\n    <!--меню-->\r\n    <nav class=\"navbar navbar-dark bg-inverse\">\r\n        <div class=\"container\">\r\n            <div>\r\n                <ul class=\"nav navbar-nav\">\r\n                    <li>");
                 EndContext();
                 BeginContext(743, 55, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c4ad0a65bd54e0bb20338208f40a5a7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a29a1c35f1194b8d8bc4eab5f718ee73", async() => {
                     BeginContext(787, 7, true);
                     WriteLiteral("Главная");
                     EndContext();
@@ -195,7 +195,7 @@ using System.Security.Claims;
                                     ");
                 EndContext();
                 BeginContext(1588, 80, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9db6019915bb4b5d9788cab0b3faeba2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2180caa8bb3647b4a02ff9cc6e336a40", async() => {
                     BeginContext(1657, 7, true);
                     WriteLiteral("Профиль");
                     EndContext();
@@ -220,7 +220,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                                    ");
                 EndContext();
                 BeginContext(1706, 82, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "239a634c04a14b44954f2247ae2c107c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6bb48bf90e694a30bdae3c4fb44177e0", async() => {
                     BeginContext(1774, 10, true);
                     WriteLiteral("Мои правки");
                     EndContext();
@@ -245,7 +245,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                                    ");
                 EndContext();
                 BeginContext(1826, 85, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d5f582164d146eaa5a04511ab8746e4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "341f3a4fa7744014807a816caba6a6ad", async() => {
                     BeginContext(1893, 14, true);
                     WriteLiteral("Создать статью");
                     EndContext();
@@ -279,7 +279,7 @@ using System.Security.Claims;
                 WriteLiteral("                                        ");
                 EndContext();
                 BeginContext(2136, 82, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f86bcfd6fe14ab5ac6d72efc45a30df", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c2b2c5c7231b443596a2065f4312854e", async() => {
                     BeginContext(2205, 9, true);
                     WriteLiteral("Модерация");
                     EndContext();
@@ -321,7 +321,7 @@ using System.Security.Claims;
                 WriteLiteral("                                        ");
                 EndContext();
                 BeginContext(2486, 82, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9caf32958f224c839a905618768b791a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08f02f09d36b4f748aae8affcf2337e6", async() => {
                     BeginContext(2555, 9, true);
                     WriteLiteral("Модерация");
                     EndContext();
@@ -346,7 +346,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(2610, 99, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "990cd4785ac24178b934b13abc646727", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c92d5f6a65e4c98ac5417be91e28cc9", async() => {
                     BeginContext(2684, 21, true);
                     WriteLiteral("Панель администратора");
                     EndContext();
@@ -379,7 +379,7 @@ using System.Security.Claims;
                 WriteLiteral("                                    <div class=\"dropdown-divider\"></div>\r\n                                    ");
                 EndContext();
                 BeginContext(2860, 79, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7f0d77b8e594300b8fdce92345277a3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a22c5d5403284f28aec97a8d8554d879", async() => {
                     BeginContext(2930, 5, true);
                     WriteLiteral("Выход");
                     EndContext();
@@ -414,7 +414,7 @@ using System.Security.Claims;
                 WriteLiteral("                        <div class=\"pull-xs-right\">\r\n                            <li class=\"nav-item\">");
                 EndContext();
                 BeginContext(3222, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3112ebdea3f41f1a6466c1f1a18b2ad", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8859396dbe184120b67662d35f938ef7", async() => {
                     BeginContext(3289, 4, true);
                     WriteLiteral("Вход");
                     EndContext();
@@ -439,7 +439,7 @@ using System.Security.Claims;
                 WriteLiteral("</li>\r\n                            <li class=\"nav-item\">");
                 EndContext();
                 BeginContext(3353, 85, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef1f1a255d0847acbc95bc00e7406ca7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64e647654d034ef8800a6312c8826704", async() => {
                     BeginContext(3423, 11, true);
                     WriteLiteral("Регистрация");
                     EndContext();
@@ -482,7 +482,7 @@ using System.Security.Claims;
                     ");
                 EndContext();
                 BeginContext(3904, 163, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd9216e280ae497892f600cdecc4fd3a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c185c8bc42e14caab2548f1098126a2a", async() => {
                     BeginContext(4003, 60, true);
                     WriteLiteral("\r\n                        Пользователь\r\n                    ");
                     EndContext();
@@ -507,7 +507,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4089, 182, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca3b6a37c9c84695a41d5d3d7ec66e51", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e1f7891917a4509a88d34cceac47c70", async() => {
                     BeginContext(4197, 70, true);
                     WriteLiteral("\r\n                        Категория пользователя\r\n                    ");
                     EndContext();
@@ -532,7 +532,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4293, 180, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79aab3c4b977447ca3424f9cc15641fc", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "751a14820d7540a4a17e24668b415e92", async() => {
                     BeginContext(4400, 69, true);
                     WriteLiteral("\r\n                        Назначенный модератор\r\n                    ");
                     EndContext();
@@ -557,7 +557,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4495, 170, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e86238fb554242af818230ed9a30ebff", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7424d95b0e00478f9088de3b0e4295f1", async() => {
                     BeginContext(4597, 64, true);
                     WriteLiteral("\r\n                        Словарная статья\r\n                    ");
                     EndContext();
@@ -582,7 +582,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4687, 179, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a901dff8dcb440e802c383d37e013fe", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d545d0feace048bf8ac5a7d8a7ed8134", async() => {
                     BeginContext(4792, 70, true);
                     WriteLiteral("\r\n                        Словарная статья - Тег\r\n                    ");
                     EndContext();
@@ -607,7 +607,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(4888, 149, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88b8a8d9652f424ba70d7d480089918d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ac958182916489b8c7551b05753877b", async() => {
                     BeginContext(4980, 53, true);
                     WriteLiteral("\r\n                        Слово\r\n                    ");
                     EndContext();
@@ -632,7 +632,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5059, 145, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5217a4b66bea4b52a2160a310c340895", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7d22bf3abe84407ab75e95465a7f8ba", async() => {
                     BeginContext(5149, 51, true);
                     WriteLiteral("\r\n                        Тег\r\n                    ");
                     EndContext();
@@ -657,7 +657,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5226, 151, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7008ff89f6164a2fae9d1cc4aa6c0f34", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c150c33775bd4bab8c390302a8d29700", async() => {
                     BeginContext(5319, 54, true);
                     WriteLiteral("\r\n                        Правка\r\n                    ");
                     EndContext();
@@ -682,7 +682,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5399, 164, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "862dcecd95694100b5f4eb2ee33c69de", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "696be571fbb94627b9387059ff9fabdf", async() => {
                     BeginContext(5498, 61, true);
                     WriteLiteral("\r\n                        Статус правки\r\n                    ");
                     EndContext();
@@ -707,7 +707,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5585, 161, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7e14bc5bf33408a846921509b4b8c01", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a597e281c48482796aa6425abaf2ebc", async() => {
                     BeginContext(5683, 59, true);
                     WriteLiteral("\r\n                        Комментарий\r\n                    ");
                     EndContext();
@@ -732,7 +732,7 @@ using System.Security.Claims;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(5768, 158, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50bb4a078c1841dd9a9b4f63483bbcdc", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea6b783838d04cd3b2ae887f12701fb5", async() => {
                     BeginContext(5864, 58, true);
                     WriteLiteral("\r\n                        Часть речи\r\n                    ");
                     EndContext();

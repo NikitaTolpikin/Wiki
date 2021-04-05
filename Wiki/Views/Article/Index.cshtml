@@ -8,7 +8,7 @@
 <div class="row" style="min-height: 5vh"></div>
 <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-10" style="text-align: right">
+    <div class="col-md-10 edit_article_container">
             <a asp-controller="Edit" asp-action="New" asp-route-article_id="@Model.IdСтатьи">[править статью]</a>
     </div>
     <div class="col-md-1"></div>
@@ -25,6 +25,16 @@
                         </h2>
                     </div>
                 </div>
+                @if (!((Model.ПутьДоАудио is null) || (Model.ПутьДоАудио == "")))
+                {
+                    <div class="row">
+                        <div class="col-md-2">
+                            <audio controls>
+                                <source src="@root@Model.ПутьДоАудио" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                }
                 <div class="row">
                     <div class="col-md-3"><h4>Теги: </h4></div>
                     <div class="col-md-9">
@@ -51,12 +61,12 @@
                 }
 
             </div>
-            <div class="col-md-6 float-right">
-                <img src="@root@Model.ПутьДоИзображения" class="img-thumbnail float-right" style="height: 250px; float:right">
-            </div>
-            <audio controls>
-                <source src="@root@Model.ПутьДоАудио" type="audio/mpeg">
-            </audio>
+            @if (!((Model.ПутьДоИзображения is null) || (Model.ПутьДоИзображения == "")))
+            {
+                <div class="col-md-6 float-right">
+                    <img src="@root@Model.ПутьДоИзображения" class="img-thumbnail float-right" style="height: 250px; float:right">
+                </div>
+            }
         </div>
     </div>
     <div class="col-md-1"></div>

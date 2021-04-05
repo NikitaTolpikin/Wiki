@@ -104,7 +104,7 @@ using Wiki.Models;
             WriteLiteral("                        ");
             EndContext();
             BeginContext(618, 103, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a01bfd1e4b6041f882f8554fa5b51a36", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a00ee52eb948446b974bf7bfa4076042", async() => {
                 BeginContext(704, 13, false);
 #line 23 "D:\Projects\Wiki\Wiki\Views\Home\Search.cshtml"
                                                                                                         Write(item.Название);
@@ -155,7 +155,7 @@ using Wiki.Models;
             WriteLiteral("                        ");
             EndContext();
             BeginContext(819, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "453144d7df82473b8f98aded402bda76", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c53bca33c7b64554aee4ce1162c1169b", async() => {
                 BeginContext(924, 13, false);
 #line 27 "D:\Projects\Wiki\Wiki\Views\Home\Search.cshtml"
                                                                                                                            Write(item.Название);
@@ -258,7 +258,7 @@ using Wiki.Models;
             WriteLiteral("        ");
             EndContext();
             BeginContext(1341, 137, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13b80508f2224d5c97c8fe96e4e41537", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "816e809ebb814b2998ebbb9b3dca20b7", async() => {
                 BeginContext(1429, 18, true);
                 WriteLiteral("[Добавить статью \"");
                 EndContext();
