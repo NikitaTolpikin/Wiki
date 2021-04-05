@@ -14,9 +14,11 @@ namespace Wiki
 {
     public class Startup
     {
+        public string root;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            this.root = configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
         }
 
         public IConfiguration Configuration { get; }
@@ -34,9 +36,16 @@ namespace Wiki
                 options.Cookie.Name = ".MyApp.Session";
                 options.Cookie.IsEssential = true;
             });
+            string connection;
+            if (this.root.Contains("Project"))
+            {
+                connection = Configuration.GetConnectionString("DefaultConnection");
 
-
-            string connection = Configuration.GetConnectionString("DefaultConnection");
+            }
+            else
+            {
+                connection = Configuration.GetConnectionString("ServerConnection");
+            }
             services.AddDbContext<ВикисловарьContext>(options => options.UseSqlServer(connection));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions

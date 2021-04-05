@@ -3,6 +3,6 @@
 ################################################################################
 
 /.vs
-/Wiki/bin
-/Wiki/obj/Release/netcoreapp2.1
+Wiki/bin
+Wiki/obj
 /Wiki/Properties/PublishProfiles
