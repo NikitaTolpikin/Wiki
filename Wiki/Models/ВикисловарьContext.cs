@@ -73,7 +73,8 @@ namespace Wiki.Models
                 entity.Property(e => e.ТекстКомментария)
                     .IsRequired()
                     .HasColumnName("Текст комментария")
-                    .HasColumnType("text");
+                    .HasColumnType("text").IsUnicode(true);
+                
 
                 entity.HasOne(d => d.IdПользователяNavigation)
                     .WithMany(p => p.Комментарий)
@@ -209,11 +210,13 @@ namespace Wiki.Models
 
                 entity.Property(e => e.ПутьДоИзображения)
                     .HasColumnName("Путь до изображения")
-                    .HasColumnType("text");
+                    .HasColumnType("text").IsUnicode(true);
+                
 
                 entity.Property(e => e.ПутьДоАудио)
                     .HasColumnName("Путь до аудио")
-                    .HasColumnType("text");
+                    .HasColumnType("text").IsUnicode(true);
+                
 
                 entity.Property(e => e.IdСтатьи).HasColumnName("ID статьи");
 
@@ -237,7 +240,8 @@ namespace Wiki.Models
                 entity.Property(e => e.ТекстСтатьи)
                     .IsRequired()
                     .HasColumnName("Текст статьи")
-                    .HasColumnType("text");
+                    .HasColumnType("text").IsUnicode(true);
+                
 
                 entity.HasOne(d => d.IdНазначенногоМодератораNavigation)
                     .WithMany(p => p.Правка)
@@ -300,15 +304,18 @@ namespace Wiki.Models
                     .IsRequired()
                     .HasColumnName("Текст статьи")
                     .HasColumnType("text")
-                    .HasDefaultValue("Статья в разработке");
+                    .HasDefaultValue("Статья в разработке").IsUnicode(true);
+                
 
                 entity.Property(e => e.ПутьДоИзображения)
                     .HasColumnName("Путь до изображения")
-                    .HasColumnType("text");
+                    .HasColumnType("text").IsUnicode(true);
+                
 
                 entity.Property(e => e.ПутьДоАудио)
                     .HasColumnName("Путь до аудио")
-                    .HasColumnType("text");
+                    .HasColumnType("text").IsUnicode(true);
+                
 
                 entity.HasOne(d => d.IdСловаNavigation)
                     .WithMany(p => p.СловарнаяСтатья)
