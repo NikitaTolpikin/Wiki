@@ -67,6 +67,7 @@ namespace Wiki.Controllers
             List<string> tags = model.СписокТегов;
             List<Тег> objectTags = new List<Тег>();
 
+            int new_count = 0;
             for (int i = 0;i<tags.Count;i++)
             {
                 tags[i] = tags[i].Replace("#", "");
@@ -75,7 +76,8 @@ namespace Wiki.Controllers
                     Тег foundTag = db.Тег.FirstOrDefault(t => t.Название == tags[i]);
                     if (foundTag==null)
                     {
-                        foundTag = new Тег { Название= tags[i], КодТега = db.Тег.ToList().Count+1};
+                        foundTag = new Тег { Название= tags[i], КодТега = db.Тег.ToList().Count+ new_count };
+                        new_count += 1;
                         db.Тег.Add(foundTag);
                     }
                     objectTags.Add(foundTag);
