@@ -90,7 +90,6 @@
                 var cloned_last_tag = $("#tags_input>div").clone();
                 cloned_last_tag.children("input").attr("name", new_tag_name)
                 var html2add = cloned_last_tag[0].outerHTML;
-                alert(html2add);
                $("#tags_input>div:nth-last-of-type(2)").after(html2add);
            });
        })
