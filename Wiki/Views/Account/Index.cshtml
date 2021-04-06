@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     string gender = (Model.Пользователь.Пол) ? "Мужчина" : "Женщина";
-    bool mod = (Model.Пользователь.КодКатегорииNavigation.Название == "Модератор") ? true : false;
+    bool mod = ((Model.Пользователь.КодКатегорииNavigation.Название == "Модератор") || (Model.Пользователь.КодКатегорииNavigation.Название == "Администратор")) ? true : false;
 }
 
 <div class="row" style="min-height: 5vh"></div>
