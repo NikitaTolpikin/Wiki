@@ -133,7 +133,7 @@ namespace Wiki.Controllers
                     Пользователь = user
                 };
 
-                if (user.КодКатегорииNavigation.Название=="Модератор")
+                if ((user.КодКатегорииNavigation.Название=="Модератор") || (user.КодКатегорииNavigation.Название == "Администратор"))
                 {
                     ICollection<СловарнаяСтатья> articles = (from nm in db.НазначенныйМодератор
                                                              where nm.IdПользователя == user.IdПользователя
